@@ -1,0 +1,234 @@
+.marquee-proof {
+  width: 100%;
+  padding-block: 80px;
+  position: relative;
+}
+
+.marquee-proof>img {
+  position: absolute;
+  bottom: -214px;
+  left: -214px;
+  margin: 0 auto;
+  z-index: 0;
+}
+
+.marquee-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  z-index: 2;
+  position: relative;
+}
+
+.marquee-left {
+  display: flex;
+  width: 604px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.marquee-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  align-self: stretch;
+}
+
+.slider-proof-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slider-proof {
+  display: flex;
+  width: 392px;
+  height: 492px;
+  padding: 32px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 32px;
+  border: 1px solid #F5F5F5;
+  background: #FFF;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.04);
+  transition: 800ms;
+  flex: 0 0 50%;
+  box-sizing: border-box;
+}
+
+.slider-proof-parent {
+  width: fit-content;
+  padding-inline: 12px;
+}
+
+.slider-proof-icon {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 26.667px;
+  transition: 400ms;
+  border: 2px solid rgba(255, 255, 255, 0.20);
+  background: radial-gradient(56.32% 88.64% at 50% 11.36%, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.10) 100%), #4A96F8;
+}
+
+.slider-proof span {
+  color: #1F1F1F;
+  font-family: Inter;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%;
+  /* 36.4px */
+  letter-spacing: -0.14px;
+  transition: color 400ms;
+}
+
+.slider-proof-button-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.slider-proof-button {
+  cursor: pointer;
+  display: flex;
+  width: 64px;
+  height: 64px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  aspect-ratio: 1/1;
+  border-radius: 16px;
+  border: 2px solid #FFF;
+  background: rgba(255, 255, 255, 0.50);
+  box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.04);
+  transition: 400ms;
+}
+
+.slider-proof-button:hover {
+  border: 2px solid rgba(255, 255, 255, 0.16);
+  background: radial-gradient(56.32% 88.64% at 50% 11.36%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.20) 100%), #2D4F8C;
+}
+
+.proof-prev img {
+  transform: rotate(180deg);
+}
+
+.slider-proof-button:hover img {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+
+.slider-proof-parent.active .slider-proof {
+  border: 1px solid #DBDBDB;
+  background: #4A96F8;
+  box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.08);
+}
+
+.slider-proof-parent.active span {
+  color: #FFF;
+}
+
+.slider-proof-parent.active .slider-proof-icon {
+  border: 2px solid rgba(255, 255, 255, 0.20);
+  background: radial-gradient(56.32% 88.64% at 50% 11.36%, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.10) 100%), #FFF;
+}
+
+.ic-proof-white {
+  display: block;
+}
+
+.ic-proof-blue {
+  display: none;
+}
+
+.slider-proof-parent.active .ic-proof-blue {
+  display: block;
+}
+
+.slider-proof-parent.active .ic-proof-white {
+  display: none;
+}
+
+
+/* Responsive mixin for mobile (max-width: 767px) */
+@media (max-width: 767px) {
+  .marquee-proof {
+    padding-block: 64px;
+  }
+
+  .marquee-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .marquee-left {
+    width: 100% !important;
+    align-items: flex-start !important;
+    text-align: center !important;
+    gap: 32px;
+  }
+
+  .slider-proof-button-wrapper {
+    align-self: flex-end;
+  }
+
+  .slider-proof {
+    width: 100%;
+    height: 400px;
+    min-width: 300px;
+    /* flex: 0 0 100%; */
+  }
+
+  .slider-proof-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+  }
+
+  .slider-proof-icon img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .slider-proof span {
+    font-size: 20px;
+    line-height: 130%;
+    /* 31.2px */
+  }
+
+  .slider-proof-parent.active {
+    display: flex;
+  }
+
+  .slider-track {
+    margin-left: 1620px;
+  }
+
+  .slider-proof-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .slider-proof-button img {
+    width: 20px;
+    height: 20px;
+  }
+
+
+
+}
