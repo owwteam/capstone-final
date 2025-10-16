@@ -1,0 +1,90 @@
+@use 'mixins';
+.section-wework_bg{
+    background: var(--Primary-Light-Blue-Solid-0, #F5F8FF);
+    .section__wework {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 64px;
+        align-self: stretch;
+        .wework {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            align-self: stretch;
+            position: relative;
+            z-index: 1;
+            @include mixins.respond(sm) {
+                flex-direction: column;
+                gap: 24px;
+            }
+    
+        &__card {
+            height: 400px;
+            flex: 1 0 0;
+            border-radius: 32px;
+            border: 5px solid var(--White-Solid-5, #FFF);
+            box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.04);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            justify-content: center;
+            background: var(--Primary-Light-Blue-Linear-10, radial-gradient(74.91% 74.91% at 50% 100%, #FFF 0%, #F5F8FF 100%));
+            @include mixins.respond(sm) {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: auto;
+    
+            }
+            img {
+                position: absolute;
+                top: 0;
+                left: auto;
+                right: auto;
+                width: 304px;
+                @include mixins.respond(sm) {
+                    position: relative;
+                }
+            }
+        }
+    
+        &__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-inline: 30px;
+            gap: 16px;
+            padding-bottom: 32px;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.00) 0%, #FFF 32%, #FFF 100%);
+    
+            h6 {
+            color: #1F1F1F;
+            text-align: center;
+            font-family: "Inter";
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 32px;
+            letter-spacing: -1px;
+            text-transform: capitalize;
+            }
+    
+            p {
+            color: #8F8F8F;
+            text-align: center;
+            font-family: "Inter";
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 24px;
+            letter-spacing: -0.2px;
+            }
+        }
+        }
+    }
+}

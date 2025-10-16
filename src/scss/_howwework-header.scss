@@ -1,0 +1,38 @@
+@use 'mixins';
+
+.section-wework{
+  padding-top: 200px;
+  padding-bottom: 64px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  .content__headline{
+    align-items: center;
+    .content__heading{
+      align-items: center;
+      text-align: center;
+      .heading__text-container{
+        justify-content: center;
+      }
+      .heading__text-dsc{
+        color: var(--Grey-Solid-70, #4C4C4C);
+        text-align: center;
+        font-family: Inter;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px; /* 155.556% */
+        letter-spacing: -0.3px;
+        max-width: 918px;
+      }
+    }
+  }
+  .img-header{
+    position: relative;
+    width: 918px;
+    height: 480px;
+    margin-top: 64px;
+  }
+}
