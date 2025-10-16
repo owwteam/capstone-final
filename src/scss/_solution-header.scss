@@ -1,3 +1,5 @@
+@use 'mixins';
+
 #solutions__header {
   background: radial-gradient(74.91% 74.91% at 50% 100%, #FFF 0%, #F5F8FF 100%);
   margin-top: -160px;
@@ -9,10 +11,19 @@
   display: flex;
   justify-content: space-between;
   overflow: hidden;
+  @include mixins.respond(sm) {
+    flex-direction: column;
+  }
 }
 
 .solutions__header>img {
   width: 640px;
   margin-top: -40px;
   margin-right: -40px;
+  @include mixins.respond(sm) {
+    width: 100%;
+    margin-top: unset;
+    margin-right: unset;
+    margin-top: 40px;
+  }
 }
