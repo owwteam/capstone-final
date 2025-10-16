@@ -90,6 +90,8 @@ function initHideOnScroll(){
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  initMarqueeSlider();
+  try{
+    initMarqueeSlider();
+  }catch(e){}
   initHideOnScroll();
 });

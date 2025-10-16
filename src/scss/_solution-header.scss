@@ -1,0 +1,18 @@
+#solutions__header {
+  background: radial-gradient(74.91% 74.91% at 50% 100%, #FFF 0%, #F5F8FF 100%);
+  margin-top: -160px;
+}
+
+.solutions__header {
+  padding-top: 200px;
+  padding-bottom: 64px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.solutions__header>img {
+  width: 640px;
+  margin-top: -40px;
+  margin-right: -40px;
+}

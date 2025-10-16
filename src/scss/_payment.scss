@@ -1,0 +1,37 @@
+.section__payment {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 64px;
+  align-self: stretch;
+  position: relative;
+}
+
+.wrapper__logo {
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper__logo>img {
+  position: absolute;
+  right: -220px;
+  bottom: 200px;
+}
+
+#section__marketplace {
+  background: #F5F8FF;
+}
+
+.section__marketplace {
+  display: flex;
+  padding-top: 80px;
+  padding-bottom: 64px;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.section__marketplace>img {
+  margin-left: -60px;
+  width: 660px;
+}
