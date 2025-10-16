@@ -15,5 +15,5 @@
   - __parts__
  
 
-run in local with : ```npm run dev``` \n
+run in local with : ```npm run dev```
 build html rendered with : ```npm run build```
