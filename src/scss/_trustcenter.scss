@@ -1,0 +1,23 @@
+#trustCenter__header {
+    background:  radial-gradient(74.91% 74.91% at 50% 100%, #FFF 0%, #F5F8FF 100%);
+    margin-top: -160px;
+}
+.trustCenter__header {
+    display: flex;
+    padding-top: 130px;
+    padding-bottom: 0px;
+    justify-content: space-between;
+}
+.trustCenter__header .content__headline {
+    padding-top: 68px;
+}
+.trustCenter__header > img {
+    margin-right: -50px;
+}
+.contentMain__parent {
+    display: flex;
+}
+.contentMain__parent > img {
+    width: 500px;
+    margin-right: -60px;
+}
