@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Capstone
+    link(rel="stylesheet", href="style.css")
+    // Inter
+    link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet")
+    // Inter Display
+    link(href="https://fonts.googleapis.com/css2?family=Inter+Display:wght@400;500;600;700&display=swap" rel="stylesheet")
+    // Clash Grotesk (Fontshare)
+    link(href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap" rel="stylesheet")
+    // Slick CSS
+    link(rel="stylesheet", type="text/css", href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css")
+    link(rel="stylesheet", type="text/css", href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css")
+  body
+    include parts/navbar.pug
+    include parts/commercial-header.pug
+    include parts/procurement.pug
+    include parts/footer.pug
+
+    // jQuery (required)
+    script(src="https://code.jquery.com/jquery-3.7.1.min.js")
+    // Slick JS
+    script(src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js")
+    script(src="script.js")
+
