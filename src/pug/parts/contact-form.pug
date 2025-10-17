@@ -1,0 +1,39 @@
+section.section-form
+  .container.container-form
+    form.contact-form
+      .form-group.row
+        .input-wrapper
+          label(for="firstName") First Name
+          input#firstName(type="text" placeholder="First name" required)
+        .input-wrapper
+          label(for="lastName") Last Name
+          input#lastName(type="text" placeholder="Last name" required)
+
+      .form-group
+        .input-wrapper.full
+          label(for="email") Email Address (work)
+          input#email(type="email" placeholder="Email address" required)
+
+      .form-group.row
+        .input-wrapper
+          label(for="company") Company
+          input#company(type="text" placeholder="Company")
+        .input-wrapper
+          label(for="role") Role
+          input#role(type="text" placeholder="Role")
+
+      .form-group.row
+        .input-wrapper
+          label(for="region") Regions of Interest
+          input#region(type="text" placeholder="Regions of interest")
+        .input-wrapper
+          label(for="usecase") Use case
+          input#usecase(type="text" placeholder="Use case")
+
+      .form-group
+        .input-wrapper.full
+          label(for="message") Message
+          textarea#message(placeholder="Message" rows="4")
+
+      button.btn(type="submit") Book a Discovery Call
+
