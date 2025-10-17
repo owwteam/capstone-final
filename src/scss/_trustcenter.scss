@@ -1,3 +1,5 @@
+@use 'mixins';
+
 #trustCenter__header {
     background:  radial-gradient(74.91% 74.91% at 50% 100%, #FFF 0%, #F5F8FF 100%);
     margin-top: -160px;
@@ -7,12 +9,19 @@
     padding-top: 130px;
     padding-bottom: 0px;
     justify-content: space-between;
+    @include mixins.respond(sm){
+        flex-direction: column;
+    }
 }
 .trustCenter__header .content__headline {
     padding-top: 68px;
 }
 .trustCenter__header > img {
     margin-right: -50px;
+    @include mixins.respond(sm){
+        margin-right: 0px;
+        width: 100%;
+    }
 }
 .contentMain__parent {
     display: flex;
@@ -20,4 +29,25 @@
 .contentMain__parent > img {
     width: 500px;
     margin-right: -60px;
+}
+.pillarParent__trust {
+    @include mixins.respond(sm){
+        margin-top: -90px;
+    }
+}
+.pillar__trust {
+    @include mixins.respond(sm){
+        align-items: center !important;
+    }
+}
+.pillar__trust .pillar__content{
+    @include mixins.respond(sm){
+        align-items: center !important;
+    }
+}
+.pillar__trust .pillar__content span {
+    text-align: left;
+    @include mixins.respond(sm){
+        text-align: center;
+    }
 }
