@@ -1,3 +1,5 @@
+@use 'mixins';
+
 .section__payment {
   display: flex;
   flex-direction: column;
@@ -16,6 +18,12 @@
   position: absolute;
   right: -220px;
   bottom: 200px;
+  @include mixins.respond(sm){
+    bottom: 700px;
+    width: 482px;
+    right: -120px;
+  }
+
 }
 
 #section__marketplace {
@@ -29,9 +37,19 @@
   justify-content: space-between;
   align-items: flex-start;
   align-self: stretch;
+  @include mixins.respond(sm){
+    flex-direction: column-reverse;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    gap: 50px;
+  }
 }
 
 .section__marketplace>img {
   margin-left: -60px;
   width: 660px;
+  @include mixins.respond(sm){
+    margin-left: 0;
+    width: 100%;
+  }
 }

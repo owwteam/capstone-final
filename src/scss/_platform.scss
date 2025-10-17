@@ -1,3 +1,5 @@
+@use 'mixins';
+
 #platform__header {
     background-color: #EDF7FF;
     margin-top: -160px;
@@ -6,15 +8,41 @@
     padding-top: 200px;
     padding-bottom: 64px;
     display: flex;
+    @include mixins.respond(sm){
+        flex-direction: column;
+        gap: 64px;
+    }
 }
 .platform__header > img {
     margin-right: -60px;
+    @include mixins.respond(sm){
+        margin-right: 0px;
+    }
 }
 .contentMain__parent {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include mixins.respond(sm) {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 16px;
+    }
 }
+.contentMain__parent > img {
+    @include mixins.respond(sm){
+        width: 100%;
+        margin-top: 32px;
+    }
+}
+
+.parent__platform {
+    margin-bottom: -50px;
+    @include mixins.respond(sm){
+        margin-bottom: 0px;
+    }
+}
+
 .contentMain__parent > p {
     color: var(--Grey-Solid-70, #4C4C4C);
     /* Body/P1/Medium */
@@ -30,6 +58,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @include mixins.respond(sm){
+        flex-direction: column-reverse;
+    }
+}
+.auto__images img{
+    @include mixins.respond(sm){
+        width: 100%;
+    }
 }
 .auto__tabs {
     display: flex;
@@ -37,6 +73,9 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
+    @include mixins.respond(sm){
+        width: 100%;
+    }
 }
 .auto__tab {
     display: flex;
@@ -75,6 +114,7 @@
 }
 .auto__title {
     display: flex;
+    flex-direction: row;
     align-items: center;
     gap: 12px;
     align-self: stretch;
@@ -89,6 +129,13 @@
     line-height: 32px; /* 133.333% */
     letter-spacing: -0.12px;
     text-transform: capitalize;
+    @include mixins.respond(sm){
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 28px; /* 140% */
+        letter-spacing: -0.1px;
+    }
 }
 .auto__content {
     overflow: hidden;
@@ -108,4 +155,26 @@
     line-height: 24px; /* 150% */
     letter-spacing: -0.2px;
     margin-top: 16px;
+}
+.wrapper__platform {
+    flex-direction: row;
+    @include mixins.respond(sm){
+        flex-direction: column-reverse;
+        gap: 50px;
+    }
+}
+.img__proof {
+    @include mixins.respond(sm){
+        width: 100%;
+        margin-left: 0px !important;
+    }
+}
+
+.img__proof-platform {
+    top: 162px;
+    @include mixins.respond(sm){
+        width: 482px;
+        top: 100px;
+        right: -100px;
+    }
 }

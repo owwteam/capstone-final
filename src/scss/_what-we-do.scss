@@ -1,3 +1,5 @@
+@use 'mixins';
+
 .what-we-do {
   background: #F5F8FF;
   width: 100%;
@@ -15,6 +17,19 @@
   width: 100%;
 }
 
+.what-we-do-parent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: -120px;
+  @include mixins.respond(sm){
+    flex-direction: column;
+    gap: 50px;
+    margin-bottom: -100px;
+  }
+}
+
 .what-we-do-heading {
   display: flex;
   width: 761px;
@@ -22,6 +37,19 @@
   justify-content: center;
   align-items: flex-start;
   gap: 32px;
+}
+
+.what-we-do-heading .section__heading-container {
+  @include mixins.respond(sm){
+    justify-content: flex-start;
+  }
+}
+
+.globe__illus {
+  width: 391px;
+  @include mixins.respond(sm){
+    width: 100%;
+  }
 }
 
 .feature__list {
@@ -177,7 +205,8 @@
   padding: 68px 764px 0 131px;
   align-items: center;
   border-radius: 50px;
-  background: linear-gradient(122deg, #BCE7FD 0%, #F7FCFF 18.24%, #BCE7FD 40.95%, #F7FCFF 69.96%, #BCE7FD 92.59%, #F7FCFF 101.69%);
+  border-radius: 50px;
+  background: linear-gradient(180deg, #FFAE42 -20.65%, #FFE9CB 100%);
 }
 
 .phone__content img {
