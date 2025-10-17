@@ -14,6 +14,7 @@
 @use 'howwework-header';
 @use 'trustcenter';
 @use 'developers';
+@use 'platform';
 
 body {
   background: #fff;
@@ -105,7 +106,12 @@ section {
 .d-flex {
   display: flex;
 }
-
+.flex-row {
+    flex-direction: row !important;
+}
+.justify-between {
+    justify-content: space-between;
+}
 .justify-center {
   justify-content: center !important;
 }
@@ -121,7 +127,9 @@ section {
 .align-start {
   align-items: flex-start !important;
 }
-
+.align-end {
+    align-items: flex-end !important;
+}
 .text-center {
   text-align: center !important;
 }
@@ -205,7 +213,26 @@ section {
   align-items: center;
   background: radial-gradient(56.32% 88.64% at 50% 11.36%, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.30) 100%), #2D4F8C;
 }
+.btn-sandbox {
+    color: var(--Grey-Solid-90, #1F1F1F);
+    text-align: center;
 
+    /* Body/P2/Semibold */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.2px;
+    display: flex;
+    padding: 12px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 100px;
+    border: 3px solid var(--White-Solid-10, #F5F5F5);
+    background: var(--White-Solid-5, #FFF);
+}
 .content__headline {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,111 @@
+#platform__header {
+    background-color: #EDF7FF;
+    margin-top: -160px;
+}
+.platform__header {
+    padding-top: 200px;
+    padding-bottom: 64px;
+    display: flex;
+}
+.platform__header > img {
+    margin-right: -60px;
+}
+.contentMain__parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contentMain__parent > p {
+    color: var(--Grey-Solid-70, #4C4C4C);
+    /* Body/P1/Medium */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 155.556% */
+    letter-spacing: -0.3px;
+    max-width: 447px;
+}
+.auto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.auto__tabs {
+    display: flex;
+    width: 447px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+.auto__tab {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    align-items: flex-start;
+    align-self: stretch;
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+}
+.auto__tab.active {
+    background: var(--White-Transparent-90, rgba(255, 255, 255, 0.80));
+
+    /* Shadow/Soft */
+    box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(8px);
+}
+.auto__tab.active .auto__progress {
+    display: block;
+}
+.auto__progress {
+    display: none;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #D9D9D9;
+}
+.auto__value {
+    width: 55%;
+    height: 100%;
+    background: linear-gradient(90deg, #4A96F8 0%, #2D4F8C 100%);
+}
+.auto__title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+}
+.auto__title h6 {
+    color: var(--Grey-Solid-70, #4C4C4C);
+    /* Heading/H6 */
+    font-family: "Inter";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.12px;
+    text-transform: capitalize;
+}
+.auto__content {
+    overflow: hidden;
+    height: 0;
+}
+.auto__tab.active .auto__content {
+    overflow: hidden;
+    height: auto !important;
+}
+.auto__content p{
+    color: var(--Grey-Solid-50, #8F8F8F);
+    /* Body/P2/Semibold */
+    font-family: "Inter";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.2px;
+    margin-top: 16px;
+}
