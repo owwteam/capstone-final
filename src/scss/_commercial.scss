@@ -1,0 +1,64 @@
+#commercial__header {
+  background: radial-gradient(74.91% 74.91% at 50% 100%, #FFF 0%, #F5F8FF 100%);
+  margin-top: -160px;
+}
+
+.commercial__header {
+  padding-top: 200px;
+  padding-bottom: 184px;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+#section__procurement {
+  background: #F5F8FF;
+}
+
+.section__procurement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 224px;
+  align-self: stretch;
+}
+
+.procurement__banner {
+  width: 1232px;
+  height: 367px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  border: 4px rgba(255, 255, 255, 0.20);
+  background: radial-gradient(56.32% 88.64% at 50% 11.36%, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.70) 100%), #93CCFD;
+  position: relative;
+}
+
+.procurement__banner img {
+  position: absolute;
+}
+
+.procurement__banner img:nth-of-type(1) {
+  right: 170px;
+  top: -112px;
+}
+
+.procurement__banner img:nth-of-type(2) {
+  right: 88px;
+  bottom: 97px;
+}
+
+.procurement__banner img:nth-of-type(3) {
+  right: 0;
+  left: 0;
+  margin: auto;
+  bottom: 0px;
+  width: 560px;
+  z-index: 1;
+}
+
+.procurement__banner img:nth-of-type(4) {
+  left: 152px;
+  bottom: 48px;
+  z-index: 2;
+}

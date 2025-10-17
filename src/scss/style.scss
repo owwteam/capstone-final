@@ -15,6 +15,8 @@
 @use 'trustcenter';
 @use 'developers';
 @use 'contact';
+@use 'services';
+@use 'commercial';
 
 body {
   background: #fff;
@@ -134,10 +136,11 @@ section {
 .wrapper {
   padding-block: 80px;
 }
+
 .wrapper-64 {
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 
 @media (max-width: 767px) {
@@ -366,11 +369,13 @@ section {
   /* 155.556% */
   letter-spacing: -0.3px;
 }
+
 .pillar__parent {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
+
 .pillar__list {
   display: inline-flex;
   align-items: center;

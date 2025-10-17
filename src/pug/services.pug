@@ -1,0 +1,55 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Capstone
+    link(rel="stylesheet", href="style.css")
+    // Inter
+    link(href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet")
+    // Inter Display
+    link(href="https://fonts.googleapis.com/css2?family=Inter+Display:wght@400;500;600;700&display=swap" rel="stylesheet")
+    // Clash Grotesk (Fontshare)
+    link(href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@400,500,600,700&display=swap" rel="stylesheet")
+    // Slick CSS
+    link(rel="stylesheet", type="text/css", href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css")
+    link(rel="stylesheet", type="text/css", href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css")
+  body
+    include parts/navbar.pug
+    include parts/service-header.pug
+    include parts/integration.pug
+    include parts/managed.pug
+    include parts/innovation.pug
+    include parts/case.pug
+    include parts/footer.pug
+
+    // jQuery (required)
+    script(src="https://code.jquery.com/jquery-3.7.1.min.js")
+    // Slick JS
+    script(src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js")
+    script(src="script.js")
+    script.
+      $(document).ready(()=>{
+      $('.slider__').slick({
+        infinite: true,
+        centerMode: false,
+        dots: false,
+        arrows: false,
+        slidesToShow: 3,
+        variableWidth: false,
+        slidesToScroll: 1,
+        pauseOnHover: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+      });
+
+      $('.btn-prev').click(()=>{
+        $('.slider-new').slick('slickPrev')
+      });
+
+      $('.btn-next').click(()=>{
+        $('.slider-new').slick('slickNext')
+      });
+      });
+
+
