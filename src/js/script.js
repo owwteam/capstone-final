@@ -94,4 +94,69 @@ document.addEventListener('DOMContentLoaded', () => {
     initMarqueeSlider();
   }catch(e){}
   initHideOnScroll();
+
+  document.querySelector('.auto__tab:nth-child(1) .auto__content').style.height = `${document.querySelector('.auto__tab:nth-child(1) .auto__content').scrollHeight}px`;
+
+  try {
+    const tabs = Array.from(document.querySelectorAll('.auto__tab'));
+    let activeIndex = tabs.findIndex(tab => tab.classList.contains('active'));
+    if (activeIndex === -1) activeIndex = 0;
+
+    let progressInterval;
+    const PROGRESS_DURATION = 5000;
+
+    const setProgress = (tab, duration) => {
+      const value = tab.querySelector('.auto__value');
+      if (!value) return;
+      value.style.transition = 'none';
+      value.style.width = '0%';
+      // Force reflow for transition restart
+      void value.offsetWidth;
+      value.style.transition = `width ${duration}ms linear`;
+      value.style.width = '100%';
+    };
+
+    const rotateImages = (index) => {
+      const images = document.querySelectorAll('.auto__images img');
+      images.forEach((img, i) => {
+        img.style.display = i === index ? 'block' : 'none';
+      });
+    };
+
+    const activateTab = (index) => {
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+        tab.querySelector('.auto__content').style.height = i === index
+          ? `${tab.querySelector('.auto__content').scrollHeight}px`
+          : '0px';
+        const value = tab.querySelector('.auto__value');
+        if (value) {
+          value.style.transition = 'none';
+          value.style.width = '0%';
+        }
+      });
+      setProgress(tabs[index], PROGRESS_DURATION);
+      rotateImages(index);
+    };
+
+    tabs.forEach((block, i) => {
+      block.addEventListener('click', (e) => {
+        activeIndex = i;
+        activateTab(activeIndex);
+        clearInterval(progressInterval);
+        startProgressInterval();
+      });
+    });
+
+    const startProgressInterval = () => {
+      progressInterval = setInterval(() => {
+        activeIndex = (activeIndex + 1) % tabs.length;
+        activateTab(activeIndex);
+      }, PROGRESS_DURATION);
+    };
+
+    // Initial activation
+    activateTab(activeIndex);
+    startProgressInterval();
+  } catch (e) {}
 });
