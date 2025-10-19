@@ -50,11 +50,19 @@
 @media (max-width: 767px) {
   .value__container {
     padding-block: 64px !important;
-    gap: 64px !important;
+    gap: 400px !important;
   }
 
   .value__container>img {
-    display: none !important;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 300px;
+  }
+
+  .value__container .pillar__list {
+    margin-top: -100px;
   }
 
   .value__content {
