@@ -150,13 +150,19 @@
   /* z-index di atas header */
   z-index: 10;
 
+
   /* Shadow/Soft */
   box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.04);
   backdrop-filter: blur(8px);
+  @include mixins.respond(sm){
+    left: unset;
+    right: 0;
+    top: 50px;
+  }
 }
 
 .dropdown.mobile {
-  transform: translateX(80px) scale(.98);
+  transform: translateX(0px) scale(.98);
 }
 
 .nav__dropdown.mobile {

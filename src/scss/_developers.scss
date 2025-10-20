@@ -21,7 +21,7 @@
     }
 }
 .developers__header > img {
-    margin-right: -90px;
+    margin-right: -110px;
     @include mixins.respond(sm){
         margin-right: 0px;
         width: 100%;
@@ -32,6 +32,12 @@
 }
 .section__heading-dev {
     align-items: center !important;
+}
+.parent__dev {
+    margin-bottom: -140px;
+    @include mixins.respond(sm){
+        margin-bottom: -80px;
+    }
 }
 .download__parent {
     display: flex;
