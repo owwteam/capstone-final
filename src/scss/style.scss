@@ -39,6 +39,10 @@ h1 {
   /* 80px */
   letter-spacing: -1.7px;
   text-transform: capitalize;
+
+  @include mixins.respond(md) {
+    font-size: 40px !important;
+  }
 }
 
 h2 {
@@ -52,6 +56,10 @@ h2 {
   /* 60px */
   letter-spacing: -1.7px;
   text-transform: capitalize;
+
+  @include mixins.respond(md) {
+    font-size: 32px !important;
+  }
 }
 
 h3 {
@@ -107,18 +115,12 @@ section {
 .container {
   width: 100%;
   max-width: 1232px;
+  box-sizing: border-box;
   margin: 0 auto;
+  padding: 0 20px;
 
   @include mixins.respond(md) {
-    padding: 0 20px;
-  }
-
-  @include mixins.respond(lg) {
-    padding: 0 20px;
-  }
-
-  @include mixins.respond(xl) {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 }
 
@@ -181,14 +183,6 @@ section {
   }
 }
 
-@media (max-width: 767px) {
-  .container {
-    width: 100%;
-    padding: 0 16px;
-    box-sizing: border-box;
-  }
-}
-
 .button {
   font-family: "Inter";
   border-radius: 100px;
@@ -210,6 +204,11 @@ section {
   letter-spacing: -0.2px;
   border: 3px solid var(--White-Transparent-10, rgba(255, 255, 255, 0.20));
   background: #14326B;
+
+  @include mixins.respond(md) {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+  }
 }
 
 .btn-getaccess {
@@ -228,6 +227,11 @@ section {
   line-height: 124%;
   /* 19.84px */
   letter-spacing: -0.08px;
+
+  @include mixins.respond(md) {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+  }
 }
 
 .btn__signup {
@@ -612,25 +616,4 @@ section {
   font-weight: 600;
   line-height: 24px;
   letter-spacing: -0.2px;
-}
-
-/* Responsive mixin for mobile (max-width: 767px) */
-@media (max-width: 767px) {
-  h1 {
-    font-size: 40px !important;
-  }
-
-  h2 {
-    font-size: 32px !important;
-  }
-
-  .btn-bookacall {
-    padding: 10px 20px !important;
-    font-size: 14px !important;
-  }
-
-  .btn-getaccess {
-    padding: 10px 20px !important;
-    font-size: 14px !important;
-  }
 }
