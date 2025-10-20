@@ -23,9 +23,9 @@
 }
 
 .solutions__header > img {
-    width: 640px;
+    width: 630px;
     margin-top: -40px;
-    margin-right: -40px;
+    margin-right: -65px;
     @include mixins.respond(sm) {
       width: 100%;
       margin-top: unset;
