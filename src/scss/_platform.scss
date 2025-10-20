@@ -17,8 +17,7 @@
 }
 
 .platform__header>img {
-    margin-right: -60px;
-
+    margin-right: -92px;
     @include mixins.respond(sm) {
         margin-right: 0px;
     }
