@@ -55,7 +55,9 @@
   border-radius: 50px;
   background: linear-gradient(180deg, #FFAE42 -20.65%, #FFE9CB 100%);
   position: relative;
-
+  @include mixins.respond(xl){
+    width: 100%;
+  }
   @include mixins.respond(sm) {
     width: 100%;
     height: 110px;
@@ -265,3 +267,70 @@
     }
   }
 }
+
+.divider {
+  position: relative;
+}
+.divider__value {
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 40%;
+  left: -1.5px;
+  right: 0;
+  border-radius: 100px;
+  background: linear-gradient(180deg, rgba(255, 174, 66, 0.20) 0%, #FFAE42 100%);
+}
+
+
+//* container menyimpan tinggi slide aktif */
+.hiw-fade{
+  position: relative;
+  overflow: hidden;
+}
+
+/* semua slide ditumpuk & disembunyikan */
+.hiw-fade .content-card{
+  position: absolute;
+  inset: 0;                 /* top:0;right:0;bottom:0;left:0 */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .45s ease;
+}
+
+/* slide aktif tampil */
+.hiw-fade .content-card.active{
+  opacity: 1;
+  pointer-events: auto;
+  position: relative;       /* biar layout internal kamu tetap natural */
+}
+
+/* opsional: animasi halus saat muncul */
+.hiw-fade .content-card{
+  transform: translateY(6px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.hiw-fade .content-card.active{
+  transform: translateY(0);
+}
+
+/* Track */
+.content-wrap.hiw-fade .divider{
+  position: relative;
+  width: 2px;                 /* ketebalan bar */
+  min-height: 420px;          /* sesuaikan tingginya dengan layout-mu */
+  background: #E9EDF7;
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+/* Fill / value */
+.content-wrap.hiw-fade .divider__value{
+  position: absolute;
+  left: 0; right: 0; bottom: 0;   /* isi dari bawah ke atas */
+  height: 0;                     /* akan diubah via JS */
+  border-radius: 100px;
+  background: linear-gradient(180deg, rgba(255,174,66,0.20) 0%, #FFAE42 100%);
+  transition: height .45s ease;   /* transisi halus saat ganti slide */
+}
+
