@@ -11,17 +11,20 @@
   display: flex;
   justify-content: space-between;
   overflow: hidden;
-  @include mixins.respond(sm){
+
+  @include mixins.respond(sm) {
     flex-direction: column;
     padding-bottom: 64px;
     gap: 40px;
   }
 }
+
 .img__commercial-header {
-  @include mixins.respond(sm){
+  @include mixins.respond(sm) {
     width: 100%;
   }
 }
+
 #section__procurement {
   background: #F5F8FF;
 }
@@ -33,15 +36,18 @@
   align-items: center;
   gap: 224px;
   align-self: stretch;
-  @include mixins.respond(sm){
+
+  @include mixins.respond(sm) {
     gap: 100px;
   }
 }
+
 .procurement__heading .section__heading {
-  @include mixins.respond(sm){
+  @include mixins.respond(sm) {
     align-items: center;
   }
 }
+
 .procurement__banner {
   width: 1232px;
   height: 367px;
@@ -49,7 +55,8 @@
   border-radius: 50px;
   background: linear-gradient(180deg, #FFAE42 -20.65%, #FFE9CB 100%);
   position: relative;
-  @include mixins.respond(sm){
+
+  @include mixins.respond(sm) {
     width: 100%;
     height: 110px;
   }
@@ -62,7 +69,8 @@
 .procurement__banner img:nth-of-type(1) {
   right: 170px;
   top: -112px;
-  @include mixins.respond(sm){
+
+  @include mixins.respond(sm) {
     width: 100px;
     top: -33px;
     right: 55px;
@@ -72,7 +80,8 @@
 .procurement__banner img:nth-of-type(2) {
   right: 88px;
   bottom: 97px;
-  @include mixins.respond(sm){
+
+  @include mixins.respond(sm) {
     width: 66px;
     bottom: 25px;
     right: 25px;
@@ -86,7 +95,8 @@
   bottom: 0px;
   width: 560px;
   z-index: 1;
-  @include mixins.respond(sm){
+
+  @include mixins.respond(sm) {
     width: 165px;
   }
 }
@@ -95,9 +105,160 @@
   left: 152px;
   bottom: 48px;
   z-index: 2;
-  @include mixins.respond(sm){
-    width: 100px ;
+
+  @include mixins.respond(sm) {
+    width: 100px;
     bottom: 14px;
     left: 44px;
+  }
+}
+
+.how-it-work {
+  padding-block: 80px;
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-inline: auto;
+    margin-bottom: 64px;
+    align-items: center;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+
+    &__wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    max-width: 447px;
+
+    @include mixins.respond(lg) {
+      display: none;
+      width: 90%;
+      max-width: 100%;
+    }
+
+    &.mobile {
+      display: none;
+
+      @include mixins.respond(lg) {
+        display: flex;
+      }
+    }
+
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      justify-content: stretch;
+    }
+
+    &-card {
+      height: 372px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      position: sticky;
+      top: 100px;
+      justify-content: space-between;
+      width: 100%;
+      padding-block: 12px;
+
+      .illustration {
+        @include mixins.respond(lg) {
+          width: 90%;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+
+        img {
+          width: 90%;
+        }
+      }
+
+      @include mixins.respond(lg) {
+        justify-content: flex-end;
+        height: auto;
+        gap: 24px;
+      }
+
+      .divider {
+        width: 1px;
+        height: 100%;
+        background: #E0E0E0;
+        position: absolute;
+        top: 0;
+        left: calc(50% - 1px);
+
+        @include mixins.respond(lg) {
+          left: 12px;
+        }
+      }
+    }
+
+    &__number {
+      color: white;
+      text-align: center;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 32px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 32px;
+      letter-spacing: -0.16px;
+      text-transform: capitalize;
+
+      @include mixins.respond(md) {
+        font-size: 24px;
+        line-height: 24px;
+      }
+    }
+
+    &__title {
+      margin-top: 24px;
+      margin-bottom: 16px;
+      color: #1F1F1F;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 48px;
+      font-style: normal;
+      font-weight: 900;
+      line-height: 56px;
+      letter-spacing: -1px;
+      text-transform: capitalize;
+
+      @include mixins.respond(md) {
+        font-size: 24px;
+        line-height: 32px;
+      }
+    }
+
+    &__desc {
+      color: #8F8F8F;
+      width: 90%;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 24px;
+      letter-spacing: -0.2px;
+
+      @include mixins.respond(md) {
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
   }
 }
