@@ -178,6 +178,9 @@
       padding-block: 12px;
 
       .illustration {
+        display: flex;
+        justify-content: flex-end;
+
         @include mixins.respond(lg) {
           width: 90%;
           display: flex;
