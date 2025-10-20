@@ -160,3 +160,105 @@ document.addEventListener('DOMContentLoaded', () => {
     startProgressInterval();
   } catch (e) {}
 });
+
+
+
+//Dropdown Navbar 
+(function () {
+  const WRAP = '.nav__dropdown';
+  const BTN  = '.dropdown__title';
+  const MENU = '.dropdown';
+  const BLUR = document.querySelector('.all__blur');
+  const HOVER_DELAY = 120; // ms
+
+  function showBlur(){ BLUR?.classList.add('active'); }
+  function hideBlur(){ BLUR?.classList.remove('active'); }
+
+  function open(dd){
+    const btn  = dd.querySelector(BTN);
+    const menu = dd.querySelector(MENU);
+    dd.classList.add('is-open');
+    btn?.setAttribute('aria-expanded','true');
+    menu?.setAttribute('aria-hidden','false'); // biar a11y tetap oke
+    showBlur();
+  }
+
+  function close(dd){
+    const btn  = dd.querySelector(BTN);
+    const menu = dd.querySelector(MENU);
+    dd.classList.remove('is-open');
+    btn?.setAttribute('aria-expanded','false');
+    menu?.setAttribute('aria-hidden','true');
+    if(!document.querySelector(`${WRAP}.is-open`)) hideBlur();
+  }
+
+  // init
+  document.querySelectorAll(WRAP).forEach(dd=>{
+    const btn  = dd.querySelector(BTN);
+    const menu = dd.querySelector(MENU);
+    if(!btn || !menu) return;
+
+    // a11y baseline
+    btn.setAttribute('role','button');
+    btn.setAttribute('aria-haspopup','true');
+    btn.setAttribute('aria-expanded','false');
+    menu.setAttribute('aria-hidden','true');
+
+    let timer;
+
+    // hover desktop
+    dd.addEventListener('mouseenter', ()=>{
+      clearTimeout(timer);
+      open(dd);
+    });
+    dd.addEventListener('mouseleave', ()=>{
+      timer = setTimeout(()=>close(dd), HOVER_DELAY);
+    });
+
+    // focus keyboard
+    dd.addEventListener('focusin', ()=>{
+      clearTimeout(timer);
+      open(dd);
+    });
+    dd.addEventListener('focusout', (e)=>{
+      if(!dd.contains(e.relatedTarget)){
+        timer = setTimeout(()=>close(dd), HOVER_DELAY);
+      }
+    });
+
+    // keyboard toggle
+    btn.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        dd.classList.contains('is-open') ? close(dd) : open(dd);
+      }
+      if(e.key === 'Escape'){
+        close(dd);
+        btn.focus();
+      }
+    });
+
+    // touch (tap) toggle
+    const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+    if(isCoarse){
+      btn.addEventListener('click', (e)=>{
+        e.preventDefault();
+        dd.classList.contains('is-open') ? close(dd) : open(dd);
+      });
+    }
+  });
+
+  // klik di luar → tutup semua
+  document.addEventListener('click', (e)=>{
+    if(!e.target.closest(WRAP)){
+      document.querySelectorAll(`${WRAP}.is-open`).forEach(close);
+      hideBlur();
+    }
+  });
+
+  // klik overlay → tutup semua
+  BLUR?.addEventListener('click', ()=>{
+    document.querySelectorAll(`${WRAP}.is-open`).forEach(close);
+    hideBlur();
+  });
+})();

@@ -106,6 +106,15 @@ section {
 .container {
   width: 1232px;
   margin: 0 auto;
+  @include mixins.respond(md){
+    padding: 0 20px;
+  }
+  @include mixins.respond(lg){
+    padding: 0 20px;
+  }
+  @include mixins.respond(xl){
+    padding: 0 20px;
+  }
 }
 
 .d-flex {
@@ -225,6 +234,18 @@ section {
   align-items: center;
   border: 3px solid rgba(255, 255, 255, 0.20);
   background: #14326B;
+  @include mixins.respond(sm){
+    padding: 10px 28px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    color: #FFF;
+    font-size: 12.727px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%; /* 17.818px */
+    letter-spacing: -0.182px;
+  }
 }
 .btn-sandbox {
     color: var(--Grey-Solid-90, #1F1F1F);
