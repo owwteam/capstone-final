@@ -7,6 +7,17 @@
         align-items: flex-start;
         gap: 64px;
         align-self: stretch;
+        .parent__wework {
+            width: 100%;
+            @include mixins.respond(sm){
+                flex-direction: column;
+            }
+            .img__wework {
+                width: 100%;
+                max-width: 520px;
+                margin-right: 0;
+            }
+        }
         .wework {
             display: flex;
             align-items: center;
@@ -17,13 +28,14 @@
             @include mixins.respond(sm) {
                 flex-direction: column;
                 gap: 24px;
+                height: 100%;
             }
     
         &__card {
             height: 400px;
             flex: 1 0 0;
             border-radius: 32px;
-            border: 5px solid var(--White-Solid-5, #FFF);
+            overflow: hidden;
             box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.04);
             backdrop-filter: blur(8px);
             display: flex;
@@ -34,9 +46,9 @@
             @include mixins.respond(sm) {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: flex-end;
                 align-items: center;
-                height: auto;
+                min-height: 350px;
     
             }
             img {
@@ -44,9 +56,9 @@
                 top: 0;
                 left: auto;
                 right: auto;
-                width: 304px;
+                width: 100%;
                 @include mixins.respond(sm) {
-                    position: relative;
+                    position: absolute;
                 }
             }
         }
