@@ -262,3 +262,69 @@ document.addEventListener('DOMContentLoaded', () => {
     hideBlur();
   });
 })();
+
+
+//SLIDER COMMERCIAL
+
+
+(function(){
+  const wrap   = document.querySelector('.content-wrap.hiw-fade');
+  if(!wrap) return;
+
+  const slides = Array.from(wrap.querySelectorAll('.content-card'));
+  let index = 0, locked = false;
+
+  // setelah inisialisasi slider
+  wrap.style.setProperty('--progress-dur', '4000ms'); // atau '5s', dsb
+
+
+  // set tinggi kontainer sesuai slide aktif
+  function fitHeight(){
+    wrap.style.height = slides[index].offsetHeight + 'px';
+  }
+
+  function show(i){
+  index = (i + slides.length) % slides.length;
+
+  slides.forEach((s, idx) => s.classList.toggle('active', idx === index));
+
+  // === Progress divider: 33% / 66% / 100% (otomatis sesuai jumlah slide) ===
+  const percent = ((index + 1) / slides.length) * 100; // 3 slide => 33.33, 66.66, 100
+  slides.forEach((s) => {
+    const v = s.querySelector('.divider__value');
+    if (v) v.style.height = percent + '%';
+  });
+
+  fitHeight();
+}
+
+
+  // init
+  show(0);
+  window.addEventListener('resize', fitHeight);
+
+  // navigasi: scroll wheel (dengan throttle)
+  wrap.addEventListener('wheel', (e) => {
+    if (locked) return;
+    locked = true; setTimeout(()=>locked=false, 500);
+    if (e.deltaY > 0) show(index + 1);
+    else show(index - 1);
+    e.preventDefault();
+  }, {passive:false});
+
+  // navigasi: swipe touch sederhana
+  let startY = 0;
+  wrap.addEventListener('touchstart', e => startY = e.touches[0].clientY, {passive:true});
+  wrap.addEventListener('touchend', e => {
+    const endY = (e.changedTouches[0] || {}).clientY || startY;
+    const dy = endY - startY;
+    if (Math.abs(dy) < 40) return;
+    if (dy < 0) show(index + 1);
+    else show(index - 1);
+  });
+
+  // opsional: API manual
+  window.hiwFadeNext = () => show(index + 1);
+  window.hiwFadePrev = () => show(index - 1);
+})();
+
