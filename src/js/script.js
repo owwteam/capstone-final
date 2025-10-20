@@ -267,64 +267,164 @@ document.addEventListener('DOMContentLoaded', () => {
 //SLIDER COMMERCIAL
 
 
-(function(){
-  const wrap   = document.querySelector('.content-wrap.hiw-fade');
-  if(!wrap) return;
+// (function(){
+//   const wrap   = document.querySelector('.content-wrap.hiw-fade');
+//   if(!wrap) return;
 
-  const slides = Array.from(wrap.querySelectorAll('.content-card'));
-  let index = 0, locked = false;
+//   const slides = Array.from(wrap.querySelectorAll('.content-card'));
+//   let index = 0, locked = false;
 
-  // setelah inisialisasi slider
-  wrap.style.setProperty('--progress-dur', '4000ms'); // atau '5s', dsb
+//   // setelah inisialisasi slider
+//   wrap.style.setProperty('--progress-dur', '4000ms'); // atau '5s', dsb
 
 
-  // set tinggi kontainer sesuai slide aktif
-  function fitHeight(){
-    wrap.style.height = slides[index].offsetHeight + 'px';
+//   // set tinggi kontainer sesuai slide aktif
+//   function fitHeight(){
+//     wrap.style.height = slides[index].offsetHeight + 'px';
+//   }
+
+//   function show(i){
+//   index = (i + slides.length) % slides.length;
+
+//   slides.forEach((s, idx) => s.classList.toggle('active', idx === index));
+
+//   // === Progress divider: 33% / 66% / 100% (otomatis sesuai jumlah slide) ===
+//   const percent = ((index + 1) / slides.length) * 100; // 3 slide => 33.33, 66.66, 100
+//   slides.forEach((s) => {
+//     const v = s.querySelector('.divider__value');
+//     if (v) v.style.height = percent + '%';
+//   });
+
+//   fitHeight();
+// }
+
+
+//   // init
+//   show(0);
+//   window.addEventListener('resize', fitHeight);
+
+//   // navigasi: scroll wheel (dengan throttle)
+//   wrap.addEventListener('wheel', (e) => {
+//     if (locked) return;
+//     locked = true; setTimeout(()=>locked=false, 500);
+//     if (e.deltaY > 0) show(index + 1);
+//     else show(index - 1);
+//     e.preventDefault();
+//   }, {passive:false});
+
+//   // navigasi: swipe touch sederhana
+//   let startY = 0;
+//   wrap.addEventListener('touchstart', e => startY = e.touches[0].clientY, {passive:true});
+//   wrap.addEventListener('touchend', e => {
+//     const endY = (e.changedTouches[0] || {}).clientY || startY;
+//     const dy = endY - startY;
+//     if (Math.abs(dy) < 40) return;
+//     if (dy < 0) show(index + 1);
+//     else show(index - 1);
+//   });
+
+//   // opsional: API manual
+//   window.hiwFadeNext = () => show(index + 1);
+//   window.hiwFadePrev = () => show(index - 1);
+// })();
+
+
+// (function(){
+//   const section = document.querySelector('.how-it-work');
+//   const pin = section.querySelector('.pin');
+//   const wrap = section.querySelector('.content-wrap.hiw-fade');
+//   if(!wrap) return;
+
+//   const slides = Array.from(wrap.querySelectorAll('.content-card'));
+//   let index = 0, locked = false;
+
+//   // update tinggi
+//   function fitHeight(){
+//     wrap.style.height = slides[index].offsetHeight + 'px';
+//   }
+
+//   function show(i){
+//     index = (i + slides.length) % slides.length;
+//     slides.forEach((s, idx) => s.classList.toggle('active', idx === index));
+//     const percent = ((index + 1) / slides.length) * 100;
+//     slides.forEach(s => {
+//       const v = s.querySelector('.divider__value');
+//       if (v) v.style.height = percent + '%';
+//     });
+//     fitHeight();
+//   }
+
+//   show(0);
+//   window.addEventListener('resize', fitHeight);
+
+//   // === Scroll Behavior ===
+//   window.addEventListener('scroll', () => {
+//     const rect = section.getBoundingClientRect();
+//     const isInView = rect.top <= 0 && rect.bottom > window.innerHeight;
+
+//     if (isInView) {
+//       pin.style.position = 'fixed';
+//       pin.style.top = '0';
+//     } else {
+//       pin.style.position = '';
+//     }
+
+//     // saat mencapai akhir slide, lepaskan sticky
+//     const reachedEnd = index === slides.length - 1 && rect.bottom <= window.innerHeight;
+//     if (reachedEnd) {
+//       pin.style.position = 'relative';
+//       pin.style.top = 'auto';
+//     }
+//   });
+
+//   // navigasi wheel
+//   wrap.addEventListener('wheel', (e) => {
+//     if (locked) return;
+//     locked = true; setTimeout(()=>locked=false, 500);
+//     if (e.deltaY > 0) show(index + 1);
+//     else show(index - 1);
+//     e.preventDefault();
+//   }, {passive:false});
+
+//   // navigasi touch
+//   let startY = 0;
+//   wrap.addEventListener('touchstart', e => startY = e.touches[0].clientY, {passive:true});
+//   wrap.addEventListener('touchend', e => {
+//     const endY = (e.changedTouches[0] || {}).clientY || startY;
+//     const dy = endY - startY;
+//     if (Math.abs(dy) < 40) return;
+//     if (dy < 0) show(index + 1);
+//     else show(index - 1);
+//   });
+
+// })();
+
+(function () {
+  const section = document.querySelector('.how-it-work');
+  if (!section) return;
+
+  const cards = Array.from(section.querySelectorAll('.content-card'));
+  const dividers = cards.map(c => c.querySelector('.divider__value'));
+  const totalCards = cards.length;
+
+  function updateDivider() {
+    const rect = section.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    // Progress scroll dalam section (0 - 1)
+    const scrollY = Math.min(Math.max((vh - rect.top) / (rect.height + vh), 0), 1);
+    const part = 1 / totalCards;
+
+    dividers.forEach((divider, i) => {
+      const start = part * i;
+      const end = part * (i + 1);
+      const progress = (scrollY - start) / (end - start);
+      const clamped = Math.max(0, Math.min(1, progress));
+      divider.style.height = (clamped * 100) + '%';
+    });
   }
 
-  function show(i){
-  index = (i + slides.length) % slides.length;
-
-  slides.forEach((s, idx) => s.classList.toggle('active', idx === index));
-
-  // === Progress divider: 33% / 66% / 100% (otomatis sesuai jumlah slide) ===
-  const percent = ((index + 1) / slides.length) * 100; // 3 slide => 33.33, 66.66, 100
-  slides.forEach((s) => {
-    const v = s.querySelector('.divider__value');
-    if (v) v.style.height = percent + '%';
-  });
-
-  fitHeight();
-}
-
-
-  // init
-  show(0);
-  window.addEventListener('resize', fitHeight);
-
-  // navigasi: scroll wheel (dengan throttle)
-  wrap.addEventListener('wheel', (e) => {
-    if (locked) return;
-    locked = true; setTimeout(()=>locked=false, 500);
-    if (e.deltaY > 0) show(index + 1);
-    else show(index - 1);
-    e.preventDefault();
-  }, {passive:false});
-
-  // navigasi: swipe touch sederhana
-  let startY = 0;
-  wrap.addEventListener('touchstart', e => startY = e.touches[0].clientY, {passive:true});
-  wrap.addEventListener('touchend', e => {
-    const endY = (e.changedTouches[0] || {}).clientY || startY;
-    const dy = endY - startY;
-    if (Math.abs(dy) < 40) return;
-    if (dy < 0) show(index + 1);
-    else show(index - 1);
-  });
-
-  // opsional: API manual
-  window.hiwFadeNext = () => show(index + 1);
-  window.hiwFadePrev = () => show(index - 1);
+  window.addEventListener('scroll', updateDivider);
+  window.addEventListener('resize', updateDivider);
+  updateDivider(); // panggil sekali saat awal
 })();
-
