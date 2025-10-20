@@ -1,4 +1,5 @@
 // Navbar Section
+.all__blur
 nav.navbar
   .container
     .navigation
@@ -20,18 +21,33 @@ nav.navbar
             circle(cx="174.993", cy="22.5681", r="2.45906", fill="#14326B")
         .nav__list
           a(href="platform.html") Platform
-          .nav__dropdown
-            a(href="solutions.html") Solutions
-            img(src="assets/images/ic-dd.svg", alt="")
+          a(href="solutions.html") Solutions
           a(href="services.html") Services
-          .nav__dropdown
-            a(href="trustcenter.html") Trust Center
-            img(src="assets/images/ic-dd.svg", alt="")
-          a(href="partners.html") Partners
           a(href="company.html") Company
+          .nav__dropdown
+            .dropdown__title
+              a(href="#") More
+              img(src="assets/images/ic-dd.svg", alt="")
+            .dropdown
+              a.dropdown__item(href="commercial.html") Commercial Model
+              a.dropdown__item(href="developers.html") Developers
+              a.dropdown__item(href="trustcenter.html") Trust Center
+              a.dropdown__item(href="partners.html") Partners
+
       .btn__group
         .language
           img(src="assets/images/united states.png", width="24px", alt="")
           span UK
         a.button.btn__signup(href="#") Sign Up
-      img.hamburger(src="assets/images/hamburger.svg", alt="")
+        .nav__dropdown.mobile
+          .dropdown__title.mobile 
+            img.ic__open(src="assets/images/hamburger.svg", alt="")
+            img.ic__close(src="assets/images/ic-close.svg", alt="")
+          .dropdown.mobile
+              a.dropdown__item(href="platform.html") Platform
+              a.dropdown__item(href="solutions.html") Solutions
+              a.dropdown__item(href="services.html") Services
+              a.dropdown__item(href="company.html") Company
+              a.dropdown__item(href="developers.html") Developers
+              a.dropdown__item(href="trustcenter.html") Trust Center
+              a.dropdown__item(href="partners.html") Partners

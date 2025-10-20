@@ -132,7 +132,15 @@
 .auto__value {
     width: 55%;
     height: 100%;
-    background: linear-gradient(90deg, #4A96F8 0%, #2D4F8C 100%);
+    background: linear-gradient(90deg, rgba(255, 174, 66, 0.20) 0%, #FFAE42 100%);
+}
+
+.auto__tab.active .auto__title h6 {
+    color: #1f1f1f;
+}
+
+.auto__tab.active .auto__title svg path {
+    fill: #1f1f1f;
 }
 
 .auto__title {
@@ -191,6 +199,8 @@
 
 .wrapper__platform {
     flex-direction: row;
+    position: relative;
+    z-index: 2;
 
     @include mixins.respond(sm) {
         flex-direction: column-reverse;
