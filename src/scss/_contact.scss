@@ -108,6 +108,7 @@
         line-height: 24px; /* 150% */
         letter-spacing: -0.2px;
         padding: 12px 32px;
+        align-self: flex-start;
         &:hover {
           background: linear-gradient(to right, #1f4e9a, #0e264f);
         }
@@ -118,7 +119,7 @@
 
 
 #contact__header{
-  background: #F5F8FF;
+  background: radial-gradient(299.74% 164.55% at 6.74% 112.32%, #FFF 0%, #F5F8FF 16.11%, #FFF7ED 100%);
   margin-top: -160px;
   .contact_header-dsc{
     max-width: 600px;
