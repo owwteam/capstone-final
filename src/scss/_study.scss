@@ -1,0 +1,117 @@
+@use 'mixins';
+
+.study {
+  .container {
+    padding-block: 80px;
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+
+    &:has(+ .container .line.last) .line::after {
+      background: radial-gradient(56.32% 88.64% at 50% 11.36%, rgba(255, 255, 255, 0.00) 0%, rgba(255, 255, 255, 0.70) 100%), #93CCFD !important;
+    }
+  }
+
+  .line {
+    width: 60px;
+    position: relative;
+
+    &.last::after {
+      display: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      height: calc(100% + 160px);
+      width: 4px;
+      background: #93CCFD;
+
+      z-index: -1;
+    }
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 44px;
+
+    .head {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      gap: 60px;
+      justify-content: space-between;
+
+      @include mixins.respond(lg) {
+        flex-direction: column;
+        gap: 32px;
+      }
+
+      &__left {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        align-items: flex-start;
+        flex: 1;
+        max-width: 50%;
+
+        @include mixins.respond(lg) {
+          max-width: 100%;
+        }
+
+        h2 {
+          color: #1F1F1F;
+
+          font-family: 'Inter', sans-serif;
+          font-size: 48px;
+          font-style: normal;
+          font-weight: 900;
+          line-height: 56px;
+          /* 116.667% */
+          letter-spacing: -1px;
+          text-transform: capitalize;
+
+          @include mixins.respond(lg) {
+            line-height: 42px;
+          }
+        }
+      }
+
+      &__right {
+        width: 40%;
+        max-width: 514px;
+
+        @include mixins.respond(lg) {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .body {
+      width: 100%;
+
+      h3 {
+        color: #1F1F1F;
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 32px;
+        /* 160% */
+        letter-spacing: -0.4px;
+      }
+    }
+  }
+}

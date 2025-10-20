@@ -20,6 +20,13 @@
 @use 'contact';
 @use 'services';
 @use 'commercial';
+@use 'case-study';
+@use 'study';
+@use 'references';
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   background: #fff;
@@ -287,36 +294,42 @@ section {
   border: 3px solid var(--White-Solid-10, #F5F5F5);
   background: var(--White-Solid-5, #FFF);
 }
-.btn__download {
-    border-radius: 1000px;
-    display: flex;
-    padding: 8px 16px 8px 12px;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    color:  #FFF;
 
-    /* Body/P3/Semibold */
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px; /* 142.857% */
-    letter-spacing: -0.1px;
-    border-radius: 1000px;
-    border: 2px solid rgba(255, 255, 255, 0.20);
-    background: #4A96F8;
-    text-decoration: none;
-    @include mixins.respond(sm){
-        font-size: 12px;
-        line-height: 16px; /* 133.333% */
-    }
+.btn__download {
+  border-radius: 1000px;
+  display: flex;
+  padding: 8px 16px 8px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: #FFF;
+
+  /* Body/P3/Semibold */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  /* 142.857% */
+  letter-spacing: -0.1px;
+  border-radius: 1000px;
+  border: 2px solid rgba(255, 255, 255, 0.20);
+  background: #4A96F8;
+  text-decoration: none;
+
+  @include mixins.respond(sm) {
+    font-size: 12px;
+    line-height: 16px;
+    /* 133.333% */
+  }
 }
+
 .btn__download img {
-    @include mixins.respond(sm){
-        width: 16px;
-    }
+  @include mixins.respond(sm) {
+    width: 16px;
+  }
 }
+
 .content__headline {
   display: flex;
   flex-direction: column;
@@ -628,7 +641,7 @@ section {
 .item__list-content span {
   color: #4C4C4C;
   /* Body/P2/Medium */
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -639,10 +652,32 @@ section {
 .item__list-content span strong {
   color: #1F1F1F;
   /* Body/P2/Medium */
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
   letter-spacing: -0.2px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.1px;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

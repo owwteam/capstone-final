@@ -1,0 +1,151 @@
+@use 'mixins';
+
+.references {
+  background: url('assets/images/references-bg.png') no-repeat right/600px, #F5F8FF;
+
+  @include mixins.respond(md) {
+    background: url('assets/images/references-bg.png') no-repeat right/400px, #F5F8FF;
+  }
+
+  .container {
+    padding-block: 80px;
+
+    &:first-child {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      @include mixins.respond(lg) {
+        flex-direction: column-reverse;
+        gap: 64px;
+      }
+    }
+
+    &:last-child {
+      display: flex;
+      flex-direction: column;
+      gap: 64px;
+
+      .head {
+        max-width: 60%;
+
+        @include mixins.respond(lg) {
+          max-width: 90%;
+        }
+      }
+    }
+
+    .illus {
+      width: 45%;
+
+      @include mixins.respond(lg) {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .head {
+      flex: 1;
+      max-width: 604px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+
+      @include mixins.respond(lg) {
+        max-width: 100%;
+      }
+
+      h2 {
+        color: #1F1F1F;
+
+        /* Heading/H2 */
+        font-family: 'Inter', sans-serif;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 64px;
+        /* 106.667% */
+        letter-spacing: -1.3px;
+        text-transform: capitalize;
+
+        @include mixins.respond(lg) {
+          line-height: 42px;
+        }
+
+        span {
+          width: 40px;
+          aspect-ratio: 1/1;
+          margin-inline: 14px;
+          background: url('assets/images/moving-flower.svg') no-repeat center/contain;
+          display: inline-block;
+
+          @include mixins.respond(lg) {
+            width: 30px;
+          }
+        }
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+
+      @include mixins.respond(md) {
+        grid-template-columns: 1fr;
+      }
+
+      &__item {
+        display: flex;
+        flex-direction: column;
+        border-radius: 32px;
+        border: 5px solid #FFF;
+        background: rgba(255, 255, 255, 0.80);
+
+        /* Shadow/Soft */
+        box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.04);
+        backdrop-filter: blur(8px);
+
+        display: flex;
+        padding: 32px;
+        flex-direction: column;
+        align-items: center;
+        flex: 1 0 0;
+        align-self: stretch;
+        text-align: center;
+
+        h3 {
+          color: #1F1F1F;
+          text-align: center;
+          font-family: 'Inter', sans-serif;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 32px;
+          /* 133.333% */
+          letter-spacing: -0.48px;
+        }
+
+        p {
+          color: #8F8F8F;
+          text-align: center;
+
+          /* Body/P2/Semibold */
+          font-family: 'Inter', sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 24px;
+          /* 150% */
+          letter-spacing: -0.2px;
+        }
+      }
+    }
+  }
+}

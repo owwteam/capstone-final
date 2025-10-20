@@ -1,0 +1,98 @@
+section.study 
+  .container 
+    .line
+      .pillar__icon
+        img(src="assets/images/study-ic1.svg" alt="")
+    .content
+      .head
+        .head__left
+          .badge
+            .badge__dots
+            span Case Study #1 (Regional Bank)
+          h2 Open API Layer for a Legacy Core 
+          a(href="").button.btn__bookacall Download Full PDF
+        .head__right 
+          img(src='assets/images/study-illus1.png' alt='Case Study Illustration')
+      .body
+        h3 Whats Inside (highlights):
+        .item__list
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span Built a UNI-RAIL middleware layer that exposes stable, versioned REST endpoints (OpenAPI) over a legacy/mainframe core that only provided CSV and batch interfaces; added HMAC-signed webhooks(instruction.created, instruction.settled, rfi.*).
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span Adapter pattern: host adapters (MQ/DB2/screen automation as last resort), batch-to-event converter, CSV/flat-file parsers, ISO-20022-inspired canonical objects for accounts, instructions, and reconciliation.
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span Governance portal with policy-as-code (OPA), RBAC, dual-control approvals, audit trails, and observability(request IDs, traces, error budgets).
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span SLOs aligned to your master schedules: 99.9% availability, ≤100 ms median / ≤500 ms P99 on core paths; acceptance via KPI reviews.
+        br
+        br
+        h3 Why the references include “IFS” and “FIS”:
+        .item__list
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span The client’s stack did not expose modern external REST APIs. As market context, enterprise vendors like FISprovide core platforms (Profile/IBS) and API gateways (Code Connect) for modernization; meanwhile IFS Cloudshows an OpenAPI-first approach in enterprise software (useful for API governance patterns).
+  .container 
+    .line 
+      .pillar__icon
+        img(src="assets/images/study-ic2.svg" alt="")
+    .content
+      .head
+        .head__left
+          .badge
+            .badge__dots
+            span Case Study #2 (ISO 20022)
+          h2 Global Wallet Ledger & Orchestration 
+          a(href="").button.btn__bookacall Download Full PDF
+        .head__right 
+          img(src='assets/images/study-illus2.png' alt='Case Study Illustration')
+      .body
+        h3 Whats Inside (highlights):
+        .item__list
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span Policy-driven routing engine: chooses the best fiat rail / corridor by risk, cost, SLA, cutoff.
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span ISO 20022 message alignment for initiation/clearing/reporting (pain/pacs/camt) and account reporting (camt.052/053/054).
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span Embedded AML/KYC casework (L1–L3) with per-bank policy packs (field masks, screening settings, TM scenarios) and evidence automation—feeding RFIs through UNI-RAIL and reducing them >70% for this client.
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span Operational visibility via webhooks + dashboards; unified ledger simplified month-end close.
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span Uses Fed/industry guidance to keep teams current on ISO 20022 transitions (CBPR+/FedNow context).
+  .container 
+    .line.last
+      .pillar__icon
+        img(src="assets/images/study-ic3.svg" alt="")
+    .content
+      .head
+        .head__left
+          .badge
+            .badge__dots
+            span Case Study #3
+          h2 Multi-Jurisdiction AML Monitoring & Data Segregation
+          a(href="").button.btn__bookacall Download Full PDF
+        .head__right 
+          img(src='assets/images/study-illus3.png' alt='Case Study Illustration')
+      .body
+        h3 Whats Inside (highlights):
+        .item__list
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span AML orchestration backbone with a common case schema (KYC/KYB, sanctions, adverse media, TM alerts), L1-L3 queues/QA, and regional partitions (encryption domains/keys per region, tokenized cross-region references).
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span Tool-per-region selection under a FATF-aligned risk-based approach; standard evidence packs for bank/regulator inquiries; UNI-RAIL RFI workflow integration.
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span Data minimisation & storage limitation (GDPR Art. 5) and AML recordkeeping ≥5 years where applicable; DPIAs and transfer mechanisms (SCCs/UK IDTA) as required by the corridor.
+          .item__list-content
+            img(src="assets/images/mingcute_check-fill.svg" alt="")
+            span Results: false positives −30–45% (region-dependent), alert handling time −35%, clean audit outcomes with regional segregation controls.
