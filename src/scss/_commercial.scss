@@ -148,6 +148,20 @@
     }
   }
 
+  .hiw__heading {
+    @include mixins.respond(sm){
+      display: none;
+    }
+  }
+  .hiw__heading-mobile {
+    display: none;
+    @include mixins.respond(sm){
+      display: flex;
+      max-width: 300px;
+      align-self: center;
+    }
+  }
+
   .content {
     display: flex;
     flex-direction: column;
