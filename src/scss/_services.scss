@@ -53,6 +53,19 @@
   }
 }
 
+.managed__heading {
+  @include mixins.respond(sm){
+    display: none !important;
+  }
+}
+.managed__heading-mobile {
+  display: none;
+  @include mixins.respond(sm){
+    width: 300px;
+    display: flex;
+  }
+}
+
 .managed__cards {
   display: flex;
   align-items: center;
@@ -90,6 +103,9 @@
   position: absolute;
   top: 0;
   left: 0;
+  @include mixins.respond(sm){
+    width: 100%;
+  }
 }
 
 .managed__content {
@@ -105,6 +121,7 @@
   @include mixins.respond(sm){
     gap: 12px;
     padding-top: 0px;
+    padding-inline: 24px;
   }
 }
 

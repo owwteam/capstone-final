@@ -16,20 +16,26 @@
     .content__heading{
       align-items: center;
       text-align: center;
-      .heading__text-container{
-        justify-content: center;
-      }
-      .heading__text-dsc{
-        color: var(--Grey-Solid-70, #4C4C4C);
-        text-align: center;
-        font-family: Inter;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 28px; /* 155.556% */
-        letter-spacing: -0.3px;
-        max-width: 918px;
-      }
+      .heading__text {
+        @include mixins.respond(sm){
+          max-width: 320px;
+          align-self: center;
+        }
+        .heading__text-container{
+          justify-content: center;
+        }
+        .heading__text-dsc{
+          color: var(--Grey-Solid-70, #4C4C4C);
+          text-align: center;
+          font-family: Inter;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 28px; /* 155.556% */
+          letter-spacing: -0.3px;
+          max-width: 918px;
+        }
+      }  
     }
   }
   .img-header{
