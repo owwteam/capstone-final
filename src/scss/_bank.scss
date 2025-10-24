@@ -25,6 +25,18 @@
   }
 }
 
+.bank__heading h2:nth-of-type(2) {
+  @include mixins.respond(sm){
+    width: 240px;
+  }
+}
+.bank__heading .section__heading-container {
+  @include mixins.respond(sm){
+    gap: 4px;
+  }
+}
+
+
 .bank {
   display: flex;
   align-items: center;

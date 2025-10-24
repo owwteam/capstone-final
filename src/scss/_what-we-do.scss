@@ -38,6 +38,18 @@
   align-items: flex-start;
   gap: 32px;
 }
+.wwd__heading {
+  @include mixins.respond(sm){
+    display: none !important;
+  }
+}
+
+.wwd__heading-mobile {
+  display: none;
+  @include mixins.respond(sm){
+    display: flex;
+  }
+}
 
 .what-we-do-heading .section__heading-container {
   @include mixins.respond(sm){
@@ -220,7 +232,7 @@
   }
 
   .custom-gap-heading {
-    gap: 2px;
+    gap: 2px !important;
     flex-wrap: wrap;
     justify-content: flex-start;
   }
@@ -279,33 +291,42 @@
   .feature-3 .feature__content span {
     text-align: center;
   }
+  .phone__illustration {
+    padding-top: 0px;
+  }
 
   .phone__illustration .img-phone {
-    width: 300px !important;
+    width: 164px !important;
     height: auto !important;
-    display: none;
+    display: block;
+    bottom: 0px;
+    top: unset;
   }
 
   .img-code {
-    width: 200px !important;
+    width: 98px !important;
     height: auto !important;
-    bottom: 300px !important;
-    right: 0 !important;
+    bottom: 70px !important;
+    right: 50px !important;
     top: auto !important;
     margin: 0 auto !important;
   }
 
   .phone__content {
-    padding: 100px 32px 0px 32px !important;
+    padding: 20px 32px 0px 32px !important;
+    height: 107px;
     flex-direction: column !important;
     gap: 24px;
     border-radius: 24px;
+    align-items: flex-start;
   }
 
   .phone__content img {
-    width: 100% !important;
+    width: 98px !important;
     height: auto !important;
     bottom: 0 !important;
+    left: 38px !important;
+    right: unset !important;
     box-shadow: none !important;
   }
 

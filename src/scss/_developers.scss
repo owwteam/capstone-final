@@ -161,6 +161,18 @@
     }
 }
 
+.dev__heading {
+    @include mixins.respond(sm){
+        display: none !important;
+    }
+}
+.dev__heading-mobile {
+    display: none !important;
+    @include mixins.respond(sm){
+        display: flex !important;
+    }
+}
+
 .pillar__dev {
     align-items: center !important;
     @include mixins.respond(sm){
